@@ -10,7 +10,17 @@ const common = {
       { test: /\.tsx?$/, loader: 'ts-loader' },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                exportLocalsConvention: 'camelCase',
+              },
+            },
+          },
+        ],
       },
     ],
   },
