@@ -3,6 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 const NodemonPlugin = require('nodemon-webpack-plugin');
 
+const cssLoader = {
+  loader: 'css-loader',
+  options: {
+    modules: {
+      auto: true,
+      exportLocalsConvention: 'camelCase',
+    },
+  },
+};
+
 const common = {
   context: path.resolve(__dirname, 'src'),
   module: {
@@ -10,17 +20,11 @@ const common = {
       { test: /\.tsx?$/, loader: 'ts-loader' },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                exportLocalsConvention: 'camelCase',
-              },
-            },
-          },
-        ],
+        use: ['style-loader', cssLoader],
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', cssLoader, 'sass-loader'],
       },
     ],
   },
