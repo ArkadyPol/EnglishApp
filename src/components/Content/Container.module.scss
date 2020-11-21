@@ -1,0 +1,30 @@
+$yellow: #e6e6b7;
+
+.container {
+  display: grid;
+  width: 600px;
+  margin: 150px auto;
+  font-size: 20px;
+  grid-template-rows: 100px 150px 50px;
+  .task {
+    background-color: $yellow;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .textarea {
+    font-size: inherit;
+    resize: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .complete {
+    .button {
+      font-size: inherit;
+      background-color: red;
+      float: right;
+      border-radius: 7px;
+    }
+  }
+}
