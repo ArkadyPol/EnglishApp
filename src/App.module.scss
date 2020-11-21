@@ -1,8 +1,8 @@
-$darkblue: #00008b;
+$blue: #0000ff;
 
 .app {
-  background-color: $darkblue;
-}
-.app-nav {
-  margin: 0 auto;
+  background-color: $blue;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 60px 1fr;
 }
