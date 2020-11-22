@@ -1,0 +1,10 @@
+$red: #ff0000;
+
+.complete {
+  .button {
+    font-size: inherit;
+    background-color: $red;
+    float: right;
+    border-radius: 7px;
+  }
+}

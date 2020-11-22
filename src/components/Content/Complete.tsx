@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Container.module.scss';
+import styles from './Complete.module.scss';
 
 const Complete = () => {
   return (
