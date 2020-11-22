@@ -12,10 +12,6 @@ const store = configureStore({
   reducer: textAreaSlice.reducer,
 });
 
-const {
-  actions: { change },
-} = textAreaSlice;
-
-export { change };
+export const { change } = textAreaSlice.actions;
 
 export default store;
