@@ -1,17 +1,8 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
-
-const textAreaSlice = createSlice({
-  name: 'textarea',
-  initialState: '',
-  reducers: {
-    change: (_, action) => action.payload,
-  },
-});
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './reducers';
 
 const store = configureStore({
-  reducer: textAreaSlice.reducer,
+  reducer: rootReducer,
 });
-
-export const { change } = textAreaSlice.actions;
 
 export default store;
