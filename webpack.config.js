@@ -46,7 +46,7 @@ const frontend = {
 };
 
 const backend = {
-  entry: ['./server.ts'],
+  entry: ['./server/index.ts'],
   output: {
     filename: 'server.js',
   },
