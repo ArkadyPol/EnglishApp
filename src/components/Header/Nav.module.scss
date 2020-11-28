@@ -1,0 +1,21 @@
+$white: #ffffff;
+$yellow: #ffff00;
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  padding: 0 15px;
+  .link {
+    color: $white;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 40px;
+    background: none;
+    border: none;
+    &:hover {
+      color: $yellow;
+    }
+  }
+}
