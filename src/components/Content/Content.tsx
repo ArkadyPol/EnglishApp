@@ -1,10 +1,10 @@
 import React from 'react';
-import Container from './Container';
+import Learn from './Learn/Learn';
 
 const Content = () => {
   return (
     <div className="content">
-      <Container />
+      <Learn />
     </div>
   );
 };

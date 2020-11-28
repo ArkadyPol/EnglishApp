@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/reducers';
-import { change } from '../../redux/reducers/textAreaSlice';
-import styles from './Container.module.scss';
+import { RootState } from '../../../redux/reducers';
+import { change } from '../../../redux/reducers/textAreaSlice';
+import styles from './Learn.module.scss';
 
 const TextArea = () => {
   const value = useSelector((state: RootState) => state.textarea);

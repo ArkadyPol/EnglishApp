@@ -1,12 +1,12 @@
 import React from 'react';
 import Complete from './Complete';
-import styles from './Container.module.scss';
+import styles from './Learn.module.scss';
 import Task from './Task';
 import TextArea from './TextArea';
 
-const Container = () => {
+const Learn = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.learn}>
       <Task data="What is your name?" />
       <TextArea />
       <Complete />
@@ -14,4 +14,4 @@ const Container = () => {
   );
 };
 
-export default Container;
+export default Learn;

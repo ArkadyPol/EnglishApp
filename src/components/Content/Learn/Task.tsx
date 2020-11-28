@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Container.module.scss';
+import styles from './Learn.module.scss';
 
 const Task = ({ data }: { data: string }) => {
   return <div className={styles.task}>{data}</div>;
