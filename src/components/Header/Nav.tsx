@@ -5,8 +5,8 @@ import Link from './Link';
 const Nav = () => {
   return (
     <nav className={styles.nav}>
-      <Link text="Учить" />
-      <Link text="Редактировать" />
+      <Link text="Учить" href="learn" />
+      <Link text="Редактировать" href="edit" />
     </nav>
   );
 };
