@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const textAreaSlice = createSlice({
-  name: 'textarea',
+const learnSlice = createSlice({
+  name: 'learn',
   initialState: '',
   reducers: {
     change: (_, action: PayloadAction<string>) => action.payload,
   },
 });
 
-export const { change } = textAreaSlice.actions;
+export const { change } = learnSlice.actions;
 
-export default textAreaSlice.reducer;
+export default learnSlice.reducer;

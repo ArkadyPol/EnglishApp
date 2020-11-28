@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import textAreaReducer from './textAreaSlice';
+import learnReducer from './learnSlice';
+import pageReducer from './pageSlice';
 
 const rootReducer = combineReducers({
-  textarea: textAreaReducer,
+  learn: learnReducer,
+  page: pageReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

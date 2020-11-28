@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/reducers';
-import { change } from '../../../redux/reducers/textAreaSlice';
+import { change } from '../../../redux/reducers/learnSlice';
 import styles from './Learn.module.scss';
 
 const TextArea = () => {
-  const value = useSelector((state: RootState) => state.textarea);
+  const value = useSelector((state: RootState) => state.learn);
   const dispatch = useDispatch();
   return (
     <textarea
