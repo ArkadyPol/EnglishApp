@@ -17,7 +17,15 @@ const app = express();
 app.use(express.static(path.resolve(__dirname, '.')));
 app.use(express.json());
 app.post('/sentence', (req, res) => {
-  console.log(req.body);
+  let sentence: string = req.body.data;
+  sentence = sentence.replace('’', "'");
+  let regExp = /[a-z][a-z']*/gi;
+  let words = sentence.match(regExp);
+  if (words) {
+    words = words.map((word) => word.toLowerCase());
+  }
+  console.log(sentence);
+  console.log(words);
   res.end();
 });
 const port = process.env.PORT;
