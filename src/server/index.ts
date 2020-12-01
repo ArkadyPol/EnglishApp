@@ -16,6 +16,10 @@ const pool = mysql
 const app = express();
 app.use(express.static(path.resolve(__dirname, '.')));
 app.use(express.json());
+app.post('/sentence', (req, res) => {
+  console.log(req.body);
+  res.end();
+});
 const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
