@@ -3,7 +3,7 @@ import { Pool, ResultSetHeader } from 'mysql2/promise';
 export const addSentence = async (pool: Pool, sentence: string) => {
   const [rows] = await pool.execute(
     `INSERT INTO Sentences(sentence)
-VALUES (?);`,
+    VALUES (?);`,
     [sentence]
   );
   console.log(rows);
@@ -20,7 +20,7 @@ export const addWords = async (
   console.log(wordsArray);
   const [rows] = await pool.query(
     `INSERT INTO Words(SentenceID, Word)
-       VALUES ?;`,
+    VALUES ?;`,
     [wordsArray]
   );
   console.log(rows);
