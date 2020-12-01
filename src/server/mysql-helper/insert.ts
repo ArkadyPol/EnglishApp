@@ -17,6 +17,7 @@ export const addWords = async (
   insertId: number
 ) => {
   const wordsArray = words.map((word) => [insertId, word]);
+  console.log(wordsArray);
   const [rows] = await pool.query(
     `INSERT INTO Words(SentenceID, Word)
        VALUES ?;`,
