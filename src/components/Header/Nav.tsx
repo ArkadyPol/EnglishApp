@@ -6,6 +6,7 @@ const Nav = () => {
     <nav className={styles.nav}>
       <Link text="Учить" href="learn" />
       <Link text="Добавить" href="add" />
+      <Link text="Предложения" href="sentences" />
     </nav>
   );
 };
