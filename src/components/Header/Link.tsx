@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { change } from '../../redux/reducers/pageSlice';
-import styles from './Nav.module.scss';
+import styles from './Link.module.scss';
 
 type Props = {
   text: string;

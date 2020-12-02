@@ -1,0 +1,17 @@
+$white: #ffffff;
+$yellow: #ffff00;
+
+.link {
+  color: $white;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 40px;
+  background: none;
+  border: none;
+  &:hover {
+    color: $yellow;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
