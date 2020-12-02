@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import styles from './Complete.module.scss';
-import { send } from '../../../redux/reducers/editSlice';
+import { send } from '../../../redux/reducers/addSlice';
 
 const Complete = () => {
   const dispatch = useDispatch();

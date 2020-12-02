@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../..//redux/reducers';
-import Edit from './Edit/Edit';
+import Add from './Add/Add';
 import Learn from './Learn/Learn';
 
 const Content = () => {
@@ -10,8 +10,8 @@ const Content = () => {
     case 'learn':
       container = <Learn />;
       break;
-    case 'edit':
-      container = <Edit />;
+    case 'add':
+      container = <Add />;
   }
   return <div className="content">{container}</div>;
 };

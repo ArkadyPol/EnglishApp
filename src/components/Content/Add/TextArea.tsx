@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/reducers';
-import { change } from '../../../redux/reducers/editSlice';
-import styles from './Edit.module.scss';
+import { change } from '../../../redux/reducers/addSlice';
+import styles from './Add.module.scss';
 
 const TextArea = () => {
-  const value = useSelector((state: RootState) => state.edit);
+  const value = useSelector((state: RootState) => state.add);
   const dispatch = useDispatch();
   return (
     <textarea

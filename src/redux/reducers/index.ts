@@ -1,12 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import learnReducer from './learnSlice';
 import pageReducer from './pageSlice';
-import editReducer from './editSlice';
+import addReducer from './addSlice';
 
 const rootReducer = combineReducers({
   learn: learnReducer,
   page: pageReducer,
-  edit: editReducer,
+  add: addReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
