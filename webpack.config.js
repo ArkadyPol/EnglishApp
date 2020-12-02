@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const nodeExternals = require('webpack-node-externals');
 const NodemonPlugin = require('nodemon-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const cssLoader = {
   loader: 'css-loader',
@@ -14,17 +15,26 @@ const cssLoader = {
 };
 
 const common = {
-  context: path.resolve(__dirname, 'src'),
+  context: __dirname,
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        include: path.resolve(__dirname, 'src'),
+        options: {
+          transpileOnly: true,
+        },
+      },
       {
         test: /\.css$/,
         use: ['style-loader', cssLoader],
+        include: path.resolve(__dirname, 'src'),
       },
       {
         test: /\.scss$/,
         use: ['style-loader', cssLoader, 'sass-loader'],
+        include: path.resolve(__dirname, 'src'),
       },
     ],
   },
@@ -34,25 +44,26 @@ const common = {
 };
 
 const frontend = {
-  entry: ['./index.tsx'],
+  entry: ['./src/index.tsx'],
   output: {
     filename: 'main.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './src/index.html',
     }),
+    new ForkTsCheckerWebpackPlugin(),
   ],
 };
 
 const backend = {
-  entry: ['./server/index.ts'],
+  entry: ['./src/server/index.ts'],
   output: {
     filename: 'server.js',
   },
   target: 'node',
   externals: [nodeExternals()],
-  plugins: [new NodemonPlugin()],
+  plugins: [new ForkTsCheckerWebpackPlugin(), new NodemonPlugin()],
 };
 
 module.exports = [
