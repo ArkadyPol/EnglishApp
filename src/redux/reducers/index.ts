@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from '@reduxjs/toolkit';
 import learnReducer from './learnSlice';
 import pageReducer from './pageSlice';
 import editReducer from './editSlice';
