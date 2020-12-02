@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/reducers';
 import { change } from '../../../redux/reducers/learnSlice';

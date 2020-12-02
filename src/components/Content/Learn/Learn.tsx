@@ -1,4 +1,3 @@
-import React from 'react';
 import Complete from './Complete';
 import styles from './Learn.module.scss';
 import Task from './Task';

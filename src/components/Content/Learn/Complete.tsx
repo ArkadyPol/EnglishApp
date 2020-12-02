@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Complete.module.scss';
 
 const Complete = () => {

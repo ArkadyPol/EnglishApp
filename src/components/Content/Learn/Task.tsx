@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Learn.module.scss';
 
 const Task = ({ data }: { data: string }) => {

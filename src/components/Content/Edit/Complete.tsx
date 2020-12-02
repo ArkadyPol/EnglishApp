@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './Complete.module.scss';
 import { send } from '../../../redux/reducers/editSlice';

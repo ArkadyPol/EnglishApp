@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { change } from '../../redux/reducers/pageSlice';
 import styles from './Nav.module.scss';
