@@ -63,7 +63,7 @@ const backend = {
   },
   target: 'node',
   externals: [nodeExternals()],
-  plugins: [new ForkTsCheckerWebpackPlugin(), new NodemonPlugin()],
+  plugins: [new NodemonPlugin()],
 };
 
 module.exports = [
