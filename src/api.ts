@@ -1,3 +1,5 @@
+import { Sentence } from './types';
+
 const api = {
   addSentence(sentence: string) {
     const options = {
@@ -8,6 +10,11 @@ const api = {
       body: JSON.stringify({ data: sentence }),
     };
     fetch('/sentence', options);
+  },
+  async getSentences() {
+    const response = await fetch('/sentences');
+    const result: Sentence[] = await response.json();
+    return result.map((sentence) => sentence.Sentence);
   },
 };
 

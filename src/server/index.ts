@@ -1,8 +1,9 @@
 import 'dotenv/config';
 import pool from './mysql-helper';
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import path from 'path';
 import { addSentence, addWords } from './mysql-helper/insert';
+import { readSentences } from './mysql-helper/select';
 
 const app = express();
 app.use(express.static(path.resolve(__dirname, '.')));
@@ -25,6 +26,18 @@ app.post('/sentence', async (req, res) => {
     console.error(err);
   }
   res.end();
+});
+app.get('/sentences', async (req, res, next) => {
+  try {
+    const sentences = await readSentences(pool);
+    res.json(sentences);
+  } catch (err) {
+    next(err);
+  }
+});
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  console.error(err);
+  res.status(500).send({ error: err });
 });
 const port = process.env.PORT;
 app.listen(port, () => {

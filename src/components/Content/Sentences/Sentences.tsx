@@ -1,11 +1,20 @@
 import styles from './Sentences.module.scss';
 import Header from './Header';
 import Row from './Row';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { get } from '../../../redux/reducers/sentencesSlice';
+import { RootState } from '../../../redux/reducers';
 
 const Sentences = () => {
-  const rows = Array(20)
-    .fill('Text')
-    .map((text, index) => <Row text={text} key={index} />);
+  const dispatch = useDispatch();
+  const sentences = useSelector((state: RootState) => state.sentences);
+
+  useEffect(() => {
+    dispatch(get());
+  }, []);
+
+  const rows = sentences.map((text, index) => <Row text={text} key={index} />);
 
   return (
     <div className={styles.sentences}>
