@@ -4,6 +4,9 @@ import express, { NextFunction, Request, Response } from 'express';
 import path from 'path';
 import { addSentence, addWords } from './mysql-helper/insert';
 import { readSentences } from './mysql-helper/select';
+import { createUniqueWords } from './mysql-helper/create';
+
+createUniqueWords(pool);
 
 const app = express();
 app.use(express.static(path.resolve(__dirname, '.')));
