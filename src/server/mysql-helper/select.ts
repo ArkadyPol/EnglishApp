@@ -9,3 +9,11 @@ export const readSentences = async (pool: Pool) => {
   console.log('length of rows: ', rows.length);
   return rows;
 };
+
+export const readSortedSentences = async (pool: Pool) => {
+  const sql = `SELECT s.SentenceID, s.Sentence, s.Num, UniqueWords.Word
+    From SortedSentences AS s
+    INNER JOIN UniqueWords ON s.Num=UniqueWords.Num`;
+  const [rows] = await pool.query(sql);
+  console.log(rows);
+};
