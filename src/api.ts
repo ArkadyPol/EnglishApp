@@ -1,4 +1,4 @@
-import { Sentence } from './types';
+import { Sentence, Task } from './types';
 
 const api = {
   addSentence(sentence: string) {
@@ -15,6 +15,11 @@ const api = {
     const response = await fetch('/sentences');
     const result: Sentence[] = await response.json();
     return result.map((sentence) => sentence.Sentence);
+  },
+  async getTasks() {
+    const response = await fetch('/tasks');
+    const result: Task[] = await response.json();
+    return result;
   },
 };
 

@@ -4,7 +4,7 @@ $blue: #87ceeb;
 
 .sentences {
   display: grid;
-  grid-template-rows: 20px repeat(20 1fr);
+  grid-template-rows: auto repeat(20, 1fr);
   height: 100%;
   .header {
     font-size: 20px;

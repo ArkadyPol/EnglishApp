@@ -1,0 +1,16 @@
+$blue: #87ceeb;
+
+.tasks {
+  display: grid;
+  grid-template-rows: auto repeat(20, 1fr);
+  padding: 0 10px;
+  height: 100%;
+  .header {
+    font-size: 20px;
+    background-color: $blue;
+    text-align: center;
+    font-weight: 700;
+    display: grid;
+    grid-template-columns: 1fr 40px 80px;
+  }
+}

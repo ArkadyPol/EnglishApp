@@ -1,0 +1,21 @@
+$lightgray: #d3d3d3;
+$white: #ffffff;
+
+.row {
+  padding: 5px 10px;
+  font-size: 16px;
+  display: grid;
+  grid-template-columns: 1fr 40px 80px;
+  &:nth-child(odd) {
+    background-color: $lightgray;
+  }
+  &:nth-child(even) {
+    background-color: $white;
+  }
+  .num {
+    text-align: center;
+  }
+  .word {
+    text-align: center;
+  }
+}

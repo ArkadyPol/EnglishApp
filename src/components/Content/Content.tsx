@@ -3,6 +3,7 @@ import { RootState } from '../..//redux/reducers';
 import Add from './Add/Add';
 import Learn from './Learn/Learn';
 import Sentences from './Sentences/Sentences';
+import Tasks from './Tasks/Tasks';
 
 const Content = () => {
   let container;
@@ -16,6 +17,10 @@ const Content = () => {
       break;
     case 'sentences':
       container = <Sentences />;
+      break;
+    case 'tasks':
+      container = <Tasks />;
+      break;
   }
   return <div className="content">{container}</div>;
 };
