@@ -50,7 +50,7 @@ export const createSentences = async (pool: Pool) => {
 
 export const createWords = async (pool: Pool) => {
   const sql = `CREATE TABLE Words (
-    WordID int NOT NULL AUTO_INCREMENT,
+    WordID int unsigned NOT NULL AUTO_INCREMENT,
     SentenceID int NOT NULL,
     Word varchar(255) NOT NULL,
     PRIMARY KEY(WordID),
