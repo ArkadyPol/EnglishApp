@@ -31,3 +31,35 @@ export const createTempTables = async (pool: Pool) => {
     console.error(err);
   }
 };
+
+export const createSentences = async (pool: Pool) => {
+  const sql = `CREATE TABLE Sentences (
+    SentenceID int NOT NULL AUTO_INCREMENT,
+    Sentence varchar(1500) NOT NULL,
+    Translation varchar(1500),
+    UNIQUE(Sentence),
+    PRIMARY KEY(SentenceID)
+  )`;
+  try {
+    const result = await pool.query(sql);
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const createWords = async (pool: Pool) => {
+  const sql = `CREATE TABLE Words (
+    WordID int NOT NULL AUTO_INCREMENT,
+    SentenceID int NOT NULL,
+    Word varchar(255) NOT NULL,
+    PRIMARY KEY(WordID),
+    FOREIGN KEY (SentenceID) REFERENCES Sentences(SentenceID)
+  )`;
+  try {
+    const result = await pool.query(sql);
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+};
