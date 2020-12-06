@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Page } from '../../types';
 
 const pageSlice = createSlice({
   name: 'page',
-  initialState: 'learn',
+  initialState: 'learn' as Page,
   reducers: {
-    change: (_, action: PayloadAction<string>) => action.payload,
+    change: (_, action: PayloadAction<Page>) => action.payload,
   },
 });
 

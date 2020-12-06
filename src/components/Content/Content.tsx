@@ -6,23 +6,14 @@ import Sentences from './Sentences/Sentences';
 import Tasks from './Tasks/Tasks';
 
 const Content = () => {
-  let container;
+  const pages = {
+    learn: <Learn />,
+    add: <Add />,
+    sentences: <Sentences />,
+    tasks: <Tasks />,
+  };
   const page = useSelector((state: RootState) => state.page);
-  switch (page) {
-    case 'learn':
-      container = <Learn />;
-      break;
-    case 'add':
-      container = <Add />;
-      break;
-    case 'sentences':
-      container = <Sentences />;
-      break;
-    case 'tasks':
-      container = <Tasks />;
-      break;
-  }
-  return <div className="content">{container}</div>;
+  return <div className="content">{pages[page]}</div>;
 };
 
 export default Content;

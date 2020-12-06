@@ -7,3 +7,4 @@ export type Task = {
   SentenceID: number;
   Word: string;
 };
+export type Page = 'learn' | 'add' | 'sentences' | 'tasks';
