@@ -1,4 +1,4 @@
-import { Sentence, Task } from './types';
+import { Sentence, Task, Word } from './types';
 
 const api = {
   addSentence(sentence: string) {
@@ -19,6 +19,11 @@ const api = {
   async getTasks() {
     const response = await fetch('/tasks');
     const result: Task[] = await response.json();
+    return result;
+  },
+  async getWords() {
+    const response = await fetch('/words');
+    const result: Word[] = await response.json();
     return result;
   },
 };

@@ -3,7 +3,11 @@ import pool from './mysql-helper';
 import express, { NextFunction, Request, Response } from 'express';
 import path from 'path';
 import { addSentence, addWords } from './mysql-helper/insert';
-import { readSentences, readSortedSentences } from './mysql-helper/select';
+import {
+  readSentences,
+  readSortedSentences,
+  readWords,
+} from './mysql-helper/select';
 import { createTempTables } from './mysql-helper/create';
 
 createTempTables(pool);
@@ -42,6 +46,14 @@ app.get('/tasks', async (req, res, next) => {
   try {
     const tasks = await readSortedSentences(pool);
     res.json(tasks);
+  } catch (err) {
+    next(err);
+  }
+});
+app.get('/words', async (req, res, next) => {
+  try {
+    const words = await readWords(pool);
+    res.json(words);
   } catch (err) {
     next(err);
   }

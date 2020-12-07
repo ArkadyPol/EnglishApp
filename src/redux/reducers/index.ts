@@ -4,6 +4,7 @@ import pageReducer from './pageSlice';
 import addReducer from './addSlice';
 import sentencesReducer from './sentencesSlice';
 import tasksReducer from './tasksSlice';
+import wordsReducer from './wordsSlice'
 
 const rootReducer = combineReducers({
   learn: learnReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   add: addReducer,
   sentences: sentencesReducer,
   tasks: tasksReducer,
+  words: wordsReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

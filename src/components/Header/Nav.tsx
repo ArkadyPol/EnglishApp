@@ -7,6 +7,7 @@ const Nav = () => {
       <Link text="Учить" href="learn" />
       <Link text="Добавить" href="add" />
       <Link text="Предложения" href="sentences" />
+      <Link text="Слова" href="words" />
       <Link text="Задачи" href="tasks" />
     </nav>
   );

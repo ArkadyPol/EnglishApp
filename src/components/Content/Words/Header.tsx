@@ -1,9 +1,8 @@
-import styles from './Tasks.module.scss';
+import styles from './Words.module.scss';
 
 const Header = () => {
   return (
     <div className={styles.header}>
-      <div>Предложение</div>
       <div>№</div>
       <div>Слово</div>
     </div>

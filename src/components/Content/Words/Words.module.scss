@@ -1,0 +1,17 @@
+$blue: #87ceeb;
+
+.words {
+  display: grid;
+  grid-template-rows: auto repeat(20, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  .header {
+    font-size: 20px;
+    padding: 0 10px;
+    background-color: $blue;
+    text-align: center;
+    font-weight: 700;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+  }
+}

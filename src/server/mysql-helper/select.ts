@@ -1,9 +1,10 @@
-import { FieldPacket, Pool, RowDataPacket } from 'mysql2/promise';
+import { Pool } from 'mysql2/promise';
+import { QueryResult } from '../../types';
 
 export const readSentences = async (pool: Pool) => {
   const [rows] = (await pool.execute(
-    `SELECT Sentence FROM Sentences LIMIT 20;`
-  )) as [RowDataPacket[], FieldPacket[]];
+    `SELECT Sentence FROM Sentences;`
+  )) as QueryResult;
   console.log(rows[0]);
   console.log('length of rows: ', rows.length);
   return rows;
@@ -11,10 +12,18 @@ export const readSentences = async (pool: Pool) => {
 
 export const readSortedSentences = async (pool: Pool) => {
   const sql = `SELECT s.SentenceID, s.Sentence, s.Num, UniqueWords.Word
-    From SortedSentences AS s
-    INNER JOIN UniqueWords ON s.Num=UniqueWords.Num
-    LIMIT 20`;
-  const [rows] = (await pool.query(sql)) as [RowDataPacket[], FieldPacket[]];
+    FROM SortedSentences AS s
+    INNER JOIN UniqueWords ON s.Num=UniqueWords.Num`;
+  const [rows] = (await pool.query(sql)) as QueryResult;
+  console.log(rows[0]);
+  console.log('length of rows: ', rows.length);
+  return rows;
+};
+
+export const readWords = async (pool: Pool) => {
+  const [rows] = (await pool.query(
+    'SELECT Num, Word FROM UniqueWords'
+  )) as QueryResult;
   console.log(rows[0]);
   console.log('length of rows: ', rows.length);
   return rows;
