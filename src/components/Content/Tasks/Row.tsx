@@ -9,6 +9,7 @@ type Props = {
 const Row: FC<Props> = ({ data }) => {
   return (
     <div className={styles.row}>
+      <div>{data.SentenceID}</div>
       <div>{data.Sentence}</div>
       <div className={styles.num}>{data.Num}</div>
       <div className={styles.word}>{data.Word} </div>

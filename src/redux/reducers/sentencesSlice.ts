@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk } from '../store';
 import api from '../../api';
+import { Sentence } from '../../types';
 
 const sentencesSlice = createSlice({
   name: 'sentences',
-  initialState: [] as string[],
+  initialState: [] as Sentence[],
   reducers: {
-    set: (_, action: PayloadAction<string[]>) => action.payload,
+    set: (_, action: PayloadAction<Sentence[]>) => action.payload,
   },
 });
 

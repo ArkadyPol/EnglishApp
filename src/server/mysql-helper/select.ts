@@ -3,7 +3,8 @@ import { QueryResult } from '../../types';
 
 export const readSentences = async (pool: Pool) => {
   const [rows] = (await pool.execute(
-    `SELECT Sentence FROM Sentences;`
+    `SELECT SentenceID, Sentence FROM Sentences
+    ORDER BY SentenceID;`
   )) as QueryResult;
   console.log(rows[0]);
   console.log('length of rows: ', rows.length);

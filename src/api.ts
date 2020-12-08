@@ -14,7 +14,7 @@ const api = {
   async getSentences() {
     const response = await fetch('/sentences');
     const result: Sentence[] = await response.json();
-    return result.map((sentence) => sentence.Sentence);
+    return result;
   },
   async getTasks() {
     const response = await fetch('/tasks');

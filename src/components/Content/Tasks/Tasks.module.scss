@@ -11,6 +11,9 @@ $blue: #87ceeb;
     text-align: center;
     font-weight: 700;
     display: grid;
-    grid-template-columns: 1fr 40px 80px;
+    grid-template-columns: 40px 1fr 40px 80px;
+    .id {
+      text-align: left;
+    }
   }
 }

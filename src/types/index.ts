@@ -2,6 +2,7 @@ import { FieldPacket, RowDataPacket } from 'mysql2/promise';
 
 export type Sentence = {
   Sentence: string;
+  SentenceID: number;
 };
 export type Task = {
   Num: number;
