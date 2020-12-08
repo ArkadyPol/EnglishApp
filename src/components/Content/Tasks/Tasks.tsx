@@ -14,7 +14,7 @@ const Tasks = () => {
     dispatch(get());
   }, []);
 
-  const rows = tasks.map((data, index) => <Row data={data} key={index} />);
+  const rows = tasks.map((data) => <Row data={data} key={data.SentenceID} />);
 
   return (
     <div className={styles.tasks}>

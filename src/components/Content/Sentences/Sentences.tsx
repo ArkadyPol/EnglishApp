@@ -14,7 +14,9 @@ const Sentences = () => {
     dispatch(get());
   }, []);
 
-  const rows = sentences.map((data, index) => <Row data={data} key={index} />);
+  const rows = sentences.map((data) => (
+    <Row data={data} key={data.SentenceID} />
+  ));
 
   return (
     <div className={styles.sentences}>
