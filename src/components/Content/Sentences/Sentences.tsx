@@ -9,7 +9,7 @@ import Row from './Row';
 const Sentences = () => {
   const dispatch = useDispatch();
   const { sentences } = useSelector((state: RootState) => state.sentences);
-  const lastChild = useRef<HTMLDivElement>(null);
+  const penultimateChild = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     dispatch(get());
@@ -22,15 +22,16 @@ const Sentences = () => {
       threshold: 1.0,
     };
     const observer = new IntersectionObserver(handleObserver, options);
-    if (lastChild.current) {
-      observer.observe(lastChild.current);
+    if (penultimateChild.current) {
+      observer.observe(penultimateChild.current);
     }
   }, [sentences]);
 
   const rows = sentences.map((data, index) => {
-    if (index !== sentences.length - 1)
+    if (index !== sentences.length - 2)
       return <Row data={data} key={data.SentenceID} />;
-    else return <Row data={data} key={data.SentenceID} ref={lastChild} />;
+    else
+      return <Row data={data} key={data.SentenceID} ref={penultimateChild} />;
   });
 
   const handleObserver = (entries: IntersectionObserverEntry[]) => {
