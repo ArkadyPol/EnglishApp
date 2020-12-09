@@ -34,10 +34,14 @@ const Sentences = () => {
       return <Row data={data} key={data.SentenceID} ref={penultimateChild} />;
   });
 
-  const handleObserver = (entries: IntersectionObserverEntry[]) => {
+  const handleObserver = (
+    entries: IntersectionObserverEntry[],
+    observer: IntersectionObserver
+  ) => {
     const target = entries[0];
     if (target.isIntersecting) {
       dispatch(get());
+      observer.disconnect();
     }
   };
 
