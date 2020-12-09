@@ -28,7 +28,9 @@ export default sentencesSlice.reducer;
 export const get = (): AppThunk => async (dispatch, getState) => {
   const lastId = getState().sentences.lastId;
   const sentences = await api.getSentences(lastId);
-  dispatch(loadSentences(sentences));
-  const newId = sentences[sentences.length - 1].SentenceID;
-  dispatch(setLastId(newId));
+  if (sentences.length) {
+    dispatch(loadSentences(sentences));
+    const newId = sentences[sentences.length - 1].SentenceID;
+    dispatch(setLastId(newId));
+  }
 };
