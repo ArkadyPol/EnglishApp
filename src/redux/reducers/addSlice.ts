@@ -15,7 +15,7 @@ export const { change } = editSlice.actions;
 export default editSlice.reducer;
 
 export const send = (): AppThunk => async (dispatch, getState) => {
-  let sentence = getState().add.trim();
+  const sentence = getState().add.trim();
   dispatch(change(''));
   if (sentence === '') return;
   api.addSentence(sentence);

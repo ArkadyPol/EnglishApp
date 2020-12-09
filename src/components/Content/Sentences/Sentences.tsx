@@ -1,22 +1,44 @@
 import styles from './Sentences.module.scss';
 import Header from './Header';
-import Row from './Row';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { get } from '../../../redux/reducers/sentencesSlice';
 import { RootState } from '../../../redux/reducers';
+import Row from './Row';
 
 const Sentences = () => {
   const dispatch = useDispatch();
-  const sentences = useSelector((state: RootState) => state.sentences);
+  const { sentences } = useSelector((state: RootState) => state.sentences);
+  const lastChild = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     dispatch(get());
-  }, []);
+  }, [dispatch]);
 
-  const rows = sentences.map((data) => (
-    <Row data={data} key={data.SentenceID} />
-  ));
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    };
+    const observer = new IntersectionObserver(handleObserver, options);
+    if (lastChild.current) {
+      observer.observe(lastChild.current);
+    }
+  }, [sentences]);
+
+  const rows = sentences.map((data, index) => {
+    if (index !== sentences.length - 1)
+      return <Row data={data} key={data.SentenceID} />;
+    else return <Row data={data} key={data.SentenceID} ref={lastChild} />;
+  });
+
+  const handleObserver = (entries: IntersectionObserverEntry[]) => {
+    const target = entries[0];
+    if (target.isIntersecting) {
+      dispatch(get());
+    }
+  };
 
   return (
     <div className={styles.sentences}>

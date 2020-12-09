@@ -34,9 +34,10 @@ app.post('/sentence', async (req, res) => {
   }
   res.end();
 });
-app.get('/sentences', async (req, res, next) => {
+app.get('/sentences/:id', async (req, res, next) => {
+  const { id } = req.params;
   try {
-    const sentences = await readSentences(pool);
+    const sentences = await readSentences(pool, +id);
     res.json(sentences);
   } catch (err) {
     next(err);

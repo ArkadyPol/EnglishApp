@@ -11,8 +11,8 @@ const api = {
     };
     fetch('/sentence', options);
   },
-  async getSentences() {
-    const response = await fetch('/sentences');
+  async getSentences(id: number) {
+    const response = await fetch(`/sentences/${id}`);
     const result: Sentence[] = await response.json();
     return result;
   },
