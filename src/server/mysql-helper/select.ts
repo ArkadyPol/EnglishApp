@@ -6,7 +6,7 @@ export const readSentences = async (pool: Pool, id: number) => {
     `SELECT SentenceID, Sentence FROM Sentences
     Where SentenceID > ?
     ORDER BY SentenceID
-    LIMIT 25;`,
+    LIMIT 60;`,
     [id]
   )) as QueryResult;
   console.log(rows[0]);
