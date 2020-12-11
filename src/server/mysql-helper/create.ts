@@ -5,7 +5,8 @@ const createUniqueWords = async (pool: Pool) => {
     SELECT (@row_number:=@row_number + 1) AS Num, Word, WordCount 
         FROM (SELECT Word, Count(WordID) AS WordCount FROM Words 
     GROUP BY Word
-    ORDER BY Count(WordID) DESC, Word) t1,
+    HAVING WordCount > 1
+    ORDER BY WordCount DESC, Word) t1,
     (SELECT @row_number:=0) t2;`;
   const [rows] = await pool.query(sql);
   console.log(rows);
@@ -13,11 +14,13 @@ const createUniqueWords = async (pool: Pool) => {
 
 const createSortedSentences = async (pool: Pool) => {
   const sql = `CREATE TEMPORARY TABLE IF NOT EXISTS SortedSentences AS
-  SELECT Words.SentenceID, Sentences.Sentence, MAX(UniqueWords.Num) as Num
+  SELECT Words.SentenceID, Sentences.Sentence, MAX(UniqueWords.Num) as Num,
+  MIN(IFNULL(UniqueWords.WordCount, 0)) as WordCount
   From Words
-  INNER JOIN UniqueWords ON Words.Word=UniqueWords.Word
+  LEFT JOIN UniqueWords ON Words.Word=UniqueWords.Word
   INNER JOIN Sentences ON Words.SentenceID=Sentences.SentenceID
   GROUP BY Words.SentenceID
+  HAVING WordCount > 1
   ORDER BY Num`;
   const [rows] = await pool.query(sql);
   console.log(rows);
