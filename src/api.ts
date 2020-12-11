@@ -16,8 +16,8 @@ const api = {
     const result: Sentence[] = await response.json();
     return result;
   },
-  async getTasks() {
-    const response = await fetch('/tasks');
+  async getTasks(page: number) {
+    const response = await fetch(`/tasks/${page}`);
     const result: Task[] = await response.json();
     return result;
   },

@@ -43,9 +43,10 @@ app.get('/sentences/:id', async (req, res, next) => {
     next(err);
   }
 });
-app.get('/tasks', async (req, res, next) => {
+app.get('/tasks/:page', async (req, res, next) => {
+  const { page } = req.params;
   try {
-    const tasks = await readSortedSentences(pool);
+    const tasks = await readSortedSentences(pool, +page);
     res.json(tasks);
   } catch (err) {
     next(err);

@@ -5,7 +5,7 @@ $white: #ffffff;
   padding: 5px 10px;
   font-size: 16px;
   display: grid;
-  grid-template-columns: 40px 1fr 40px 80px;
+  grid-template-columns: 40px 1fr 40px 100px;
   &:nth-child(odd) {
     background-color: $lightgray;
   }
